@@ -11,17 +11,35 @@ package pooBiblioteca.model;
  */
 public class Livro {
 
-    private int id;
+    private String isbn;
     private String titulo;
     private int anoPub;
-    private String isbn;
+    private String categoria;
+    private String resenha;
+    private String ditora;
+    private String idioma;
+    private int idAutor;
 
-    public int getId() {
-        return id;
+    public Livro() {
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Livro(String isbn, String titulo, int anoPub, String categoria, String resenha, String ditora, String idioma, int idAutor) {
+        this.isbn = isbn;
+        this.titulo = titulo;
+        this.anoPub = anoPub;
+        this.categoria = categoria;
+        this.resenha = resenha;
+        this.ditora = ditora;
+        this.idioma = idioma;
+        this.idAutor = idAutor;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 
     public String getTitulo() {
@@ -40,12 +58,45 @@ public class Livro {
         this.anoPub = anoPub;
     }
 
-    public String getIsbn() {
-        return isbn;
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
+    public String getResenha() {
+        return resenha;
+    }
+
+    public void setResenha(String resenha) {
+        this.resenha = resenha;
+    }
+
+    public String getDitora() {
+        return ditora;
+    }
+
+    public void setDitora(String ditora) {
+        this.ditora = ditora;
+    }
+
+    public String getIdioma() {
+        return idioma;
+    }
+
+    public void setIdioma(String idioma) {
+        this.idioma = idioma;
+    }
+
+    public int getIdAutor() {
+        return idAutor;
+    }
+
+    public void setIdAutor(int idAutor) {
+        this.idAutor = idAutor;
+    }
+
+   
 }

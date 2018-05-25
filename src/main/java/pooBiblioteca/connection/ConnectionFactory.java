@@ -20,9 +20,9 @@ import java.util.logging.Logger;
 public class ConnectionFactory {
 
     private static final String DRIVER = "com.mysql.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://senacpi3.mysql.dbaas.com.br/senacpi3?useSSL=false";
-    private static final String USER = "senacpi3";
-    private static final String PASS = "TADS1801@pi3";
+    private static final String URL = "jdbc:mysql://senacpoo.mysql.dbaas.com.br/senacpoo?useSSL=false";
+    private static final String USER = "senacpoo";
+    private static final String PASS = "senacpoo";
 //    private static final String USER = "root";
 //    private static final String PASS = "rom08_01";
 

@@ -9,29 +9,26 @@ package pooBiblioteca.model;
  *
  * @author vinicius.presoto
  */
-public class Cliente {
-
+public class Bibliotecario {
+    
     private int id;
     private String nome;
-    private String cpf;
     private String email;
-    private String telefone;
-    private String endereco;
+    private String login;
+    private String senha;
 
-    public Cliente() {
+    public Bibliotecario() {
     }
 
-    
-    public Cliente(int id, String nome, String cpf, String email, String telefone, String endereco) {
+    public Bibliotecario(int id, String nome, String email, String login, String senha) {
         this.id = id;
         this.nome = nome;
-        this.cpf = cpf;
         this.email = email;
-        this.telefone = telefone;
-        this.endereco = endereco;
+        this.login = login;
+        this.senha = senha;
     }
+
     
-       
     public int getId() {
         return id;
     }
@@ -48,14 +45,6 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -64,20 +53,21 @@ public class Cliente {
         this.email = email;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getLogin() {
+        return login;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
-
+    
+    
 }
