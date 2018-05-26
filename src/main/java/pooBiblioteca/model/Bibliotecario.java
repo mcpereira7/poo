@@ -16,6 +16,7 @@ public class Bibliotecario {
     private String email;
     private String login;
     private String senha;
+    private boolean ativo;
 
     public Bibliotecario() {
     }
@@ -67,6 +68,14 @@ public class Bibliotecario {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
     }
     
     

@@ -7,6 +7,7 @@ package pooBiblioteca.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import pooBiblioteca.connection.ConnectionFactory;
@@ -44,7 +45,7 @@ public class BibliotecarioDAO {
         PreparedStatement stmt = null;
         cn = ConnectionFactory.getConnection();
         
-        String sql = "UPDATE Bibliotecario SET id = ?, Nome = ?, Email = ?, Login = ?, Senha = ?"
+        String sql = "UPDATE Bibliotecario SET id = ?, Nome = ?, Email = ?, Login = ?, Senha = ?, Ativo = ?"
                 + "WHERE id = ?";
         
         try {
@@ -54,7 +55,8 @@ public class BibliotecarioDAO {
             stmt.setString(3, user.getEmail());
             stmt.setString(4, user.getLogin());
             stmt.setString(5, user.getSenha());
-            stmt.setInt(6, user.getId());
+            stmt.setBoolean(6, user.isAtivo());
+            stmt.setInt(7, user.getId());
             stmt.execute();
             
         } finally {
@@ -65,25 +67,46 @@ public class BibliotecarioDAO {
     public static void apagarBibliotecario(int id) throws SQLException, Exception{
         PreparedStatement stmt = null;
         cn = ConnectionFactory.getConnection();
+       
         
-        String sql = "";
+        String sql = "UPDATE Bibliotecario SET Ativo = ? WHERE id = ?";
         
         try {
+            stmt = cn.prepareStatement(sql);
+            stmt.setBoolean(1, false);
+            stmt.setInt(2, id);
+            stmt.execute();
             
         } finally {
+            ConnectionFactory.closeConnection(cn, stmt);
         }
     }
     
-    public static Bibliotecario select(int id) throws SQLException, Exception{
+    public static Bibliotecario buscarBibliotecario(int id) throws SQLException, Exception{
         PreparedStatement stmt = null;
         cn = ConnectionFactory.getConnection();
-        
-        String sql = "";
+        ResultSet rs = null;
+        Bibliotecario user = null;
+        String sql = "SELECT * FROM Bibliotecario WHERE id = ?";
         
         try {
+            stmt = cn.prepareStatement(sql);
+            stmt.setInt(1, id);
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                user = new Bibliotecario();
+                user.setId(rs.getInt("id"));
+                user.setNome(rs.getString("Nome"));
+                user.setEmail(rs.getString("Email"));
+                user.setLogin(rs.getString("Login"));
+                user.setSenha(rs.getString("Senha"));
+                user.setAtivo(rs.getBoolean("Ativo"));
+            }
             
         } finally {
+            ConnectionFactory.closeConnection(cn, stmt, rs);
         }
-        return null;
+        return user;
     }
 }
