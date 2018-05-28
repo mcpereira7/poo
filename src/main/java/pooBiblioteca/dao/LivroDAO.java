@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import pooBiblioteca.connection.ConnectionFactory;
 import pooBiblioteca.model.Livro;
+import pooBiblioteca.model.LivroAcervo;
 
 /**
  *
@@ -22,12 +23,12 @@ public class LivroDAO {
 
     private static Connection cn = null;
 
-    public static void cadastrar(Livro livro) throws SQLException, Exception {
+    public static void cadastrar(LivroAcervo livro) throws SQLException, Exception {
         PreparedStatement stmt = null;
         cn = ConnectionFactory.getConnection();
 
-        String sql = "INSERT INTO Livro (ISBN,Nome,Categoria,Resenha,Editora, AnoPub, Idioma, idAutor) "
-                + "VALUES (?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO Livro (ISBN,Nome,Categoria,Resenha,Editora, AnoPub, Idioma, Autor, NumPaginas) "
+                + "VALUES (?,?,?,?,?,?,?,?,?)";
         
         try {
             stmt = cn.prepareStatement(sql);
@@ -35,10 +36,11 @@ public class LivroDAO {
             stmt.setString(2, livro.getTitulo());
             stmt.setString(3, livro.getCategoria());
             stmt.setString(4, livro.getResenha());
-            stmt.setString(5, livro.getDitora());
-            stmt.setInt(6, livro.getAnoPub());
+            stmt.setString(5, livro.getEditora());
+            stmt.setString(6, livro.getdataPub());
             stmt.setString(7, livro.getIdioma());
-            stmt.setInt(8, livro.getIdAutor());
+            stmt.setString(8, livro.getAutor());
+            stmt.setInt(9, livro.getNumPaginas());
             stmt.execute();
             
         } finally {
@@ -46,11 +48,11 @@ public class LivroDAO {
         }
     }
     
-    public static void atualizar(Livro livro) throws SQLException, Exception{
+    public static void atualizar(LivroAcervo livro) throws SQLException, Exception{
         PreparedStatement stmt = null;
         cn = ConnectionFactory.getConnection();
         
-        String sql = "UPDATE Livro SET ISBN = ?,Nome = ?,Categoria = ?,Resenha = ?,Editora = ?, AnoPub = ?, Idioma = ?, idAutor = ?"
+        String sql = "UPDATE Livro SET ISBN = ?,Nome = ?,Categoria = ?,Resenha = ?,Editora = ?, AnoPub = ?, Idioma = ?, Autor = ?, NumPaginas = ?"
                 + "WHERE ISBN = ?";
         
         try {
@@ -59,11 +61,12 @@ public class LivroDAO {
             stmt.setString(2, livro.getTitulo());
             stmt.setString(3, livro.getCategoria());
             stmt.setString(4, livro.getResenha());
-            stmt.setString(5, livro.getDitora());
-            stmt.setInt(6, livro.getAnoPub());
+            stmt.setString(5, livro.getEditora());
+            stmt.setString(6, livro.getdataPub());
             stmt.setString(7, livro.getIdioma());
-            stmt.setInt(8, livro.getIdAutor());
-            stmt.setString(9, livro.getIsbn());
+            stmt.setString(8, livro.getAutor());
+            stmt.setInt(9, livro.getNumPaginas());
+            stmt.setString(10, livro.getIsbn());
             stmt.execute();
             
         } finally {
@@ -93,7 +96,7 @@ public class LivroDAO {
         cn = ConnectionFactory.getConnection();
         ResultSet rs = null;
         List livros = new ArrayList();
-        Livro livro = null;
+        LivroAcervo livro = null;
         String sql = "SELECT * FROM Bibliotecario WHERE Nome like ?";
         
         try {
@@ -102,15 +105,16 @@ public class LivroDAO {
             rs = stmt.executeQuery();
             
             while(rs.next()){
-                livro = new Livro();
+                livro = new LivroAcervo();
                 livro.setIsbn(rs.getString("ISBN"));
                 livro.setTitulo(rs.getString("Nome"));
                 livro.setCategoria(rs.getString("Categoria"));
                 livro.setResenha(rs.getString("Resenha"));
-                livro.setDitora(rs.getString("Editora"));
-                livro.setAnoPub(rs.getInt("AnoPub"));
+                livro.setEditora(rs.getString("Editora"));
+                livro.setdataPub(rs.getString("AnoPub"));
                 livro.setIdioma(rs.getString("Idioma"));
-                livro.setIdAutor(rs.getInt("idAutor"));
+                livro.setAutor(rs.getString("Autor"));
+                livro.setNumPaginas(rs.getInt("NumPaginas"));
                 livros.add(livro);
             }
             

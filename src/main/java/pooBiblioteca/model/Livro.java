@@ -9,30 +9,13 @@ package pooBiblioteca.model;
  *
  * @author vinicius.presoto
  */
-public class Livro {
+public abstract class Livro {
 
-    private String isbn;
-    private String titulo;
-    private int anoPub;
-    private String categoria;
-    private String resenha;
-    private String ditora;
-    private String idioma;
-    private int idAutor;
+    protected String isbn;
+    protected String titulo;
+    protected String categoria;
+    protected int numPaginas;
 
-    public Livro() {
-    }
-
-    public Livro(String isbn, String titulo, int anoPub, String categoria, String resenha, String ditora, String idioma, int idAutor) {
-        this.isbn = isbn;
-        this.titulo = titulo;
-        this.anoPub = anoPub;
-        this.categoria = categoria;
-        this.resenha = resenha;
-        this.ditora = ditora;
-        this.idioma = idioma;
-        this.idAutor = idAutor;
-    }
 
     public String getIsbn() {
         return isbn;
@@ -50,13 +33,6 @@ public class Livro {
         this.titulo = titulo;
     }
 
-    public int getAnoPub() {
-        return anoPub;
-    }
-
-    public void setAnoPub(int anoPub) {
-        this.anoPub = anoPub;
-    }
 
     public String getCategoria() {
         return categoria;
@@ -66,37 +42,4 @@ public class Livro {
         this.categoria = categoria;
     }
 
-    public String getResenha() {
-        return resenha;
-    }
-
-    public void setResenha(String resenha) {
-        this.resenha = resenha;
-    }
-
-    public String getDitora() {
-        return ditora;
-    }
-
-    public void setDitora(String ditora) {
-        this.ditora = ditora;
-    }
-
-    public String getIdioma() {
-        return idioma;
-    }
-
-    public void setIdioma(String idioma) {
-        this.idioma = idioma;
-    }
-
-    public int getIdAutor() {
-        return idAutor;
-    }
-
-    public void setIdAutor(int idAutor) {
-        this.idAutor = idAutor;
-    }
-
-   
 }
