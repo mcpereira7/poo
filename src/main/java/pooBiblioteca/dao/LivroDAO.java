@@ -91,13 +91,13 @@ public class LivroDAO {
         }
     }
     
-    public static List<Livro> buscar(String nome) throws SQLException, Exception{
+    public static List<LivroAcervo> buscar(String nome) throws SQLException, Exception{
         PreparedStatement stmt = null;
-        cn = ConnectionFactory.getConnection();
         ResultSet rs = null;
         List livros = new ArrayList();
         LivroAcervo livro = null;
-        String sql = "SELECT * FROM Bibliotecario WHERE Nome like ?";
+        String sql = "SELECT * FROM Livro WHERE Nome like ?;";
+        cn = ConnectionFactory.getConnection();
         
         try {
             stmt = cn.prepareStatement(sql);

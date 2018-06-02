@@ -6,6 +6,8 @@
 package pooBiblioteca.controllers;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import pooBiblioteca.dao.LivroDAO;
@@ -23,6 +25,18 @@ public class ServicoLivro {
         } catch (SQLException ex) {
             Logger.getLogger(ServicoLivro.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public static List<LivroAcervo> consultar(String titulo) throws SQLException, Exception{
+        List<LivroAcervo> listaLivro = new ArrayList<>();
+        
+        try {
+            listaLivro = LivroDAO.buscar(titulo);
+        } catch (Exception e) {
+            
+        }
+        
+        return listaLivro;
     }
     
 }
