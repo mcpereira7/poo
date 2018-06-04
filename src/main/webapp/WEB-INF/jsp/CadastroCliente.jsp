@@ -26,19 +26,12 @@
 
             <!-- Menu Suspenso-->
             <div class="topnav" id="myTopnav">
-                <a href="#home" class="active">Home</a>
-                <a href="#news">Acervo</a>
-                <a href="#contact">Empréstimos</a>
-                <div class="dropdown">
-                    <button class="dropbtn">Cadastro 
-                        <i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="#">Autor</a>
-                        <a href="#">Clientes</a>
-                        <a href="#">Livros</a>
-                    </div>
-                </div> 
+                <a href="index.html" class="active">Home</a>
+                <a href="ConsultarAcervo">Acervo</a>
+                <a href="Reserva">Empréstimos</a>
+                <a href="CadastroCliente">Cadastro Cliente</a>
+                <a href="CadastroLivro">Cadastro Livro</a>
+             </div>
                 <!--a href="#about">About</a-->
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
             </div>

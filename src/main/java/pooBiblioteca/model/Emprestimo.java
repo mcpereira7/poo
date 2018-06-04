@@ -5,7 +5,7 @@
  */
 package pooBiblioteca.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  *
@@ -15,7 +15,8 @@ public class Emprestimo extends Livro{
     
     private Date dtEmp;
     private Date dtDev;
-    private boolean devolvido; // Se devolução occoreu após a data prevista
+    private Date dtPrev;
+    private boolean devolvido; 
     private int diasAtraso;
     private double valorMulta;
     
@@ -71,6 +72,15 @@ public class Emprestimo extends Livro{
         this.valorMulta = this.diasAtraso * valorMulta;
     }
 
+    public Date getDtPrev() {
+        return dtPrev;
+    }
+
+    public void setDtPrev(Date dtPrev) {
+        this.dtPrev = dtPrev;
+    }
+
+    
     @Override
     public String getIsbn() {
         return isbn;

@@ -21,7 +21,7 @@ import pooBiblioteca.model.Livro;
  */
 
 @WebServlet(urlPatterns = {"/Reserva"})
-public class RegistrarEmprestimo extends HttpServlet{
+public class ReservarLivro extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

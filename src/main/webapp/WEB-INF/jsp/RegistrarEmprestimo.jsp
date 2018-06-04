@@ -26,20 +26,14 @@
         <div class="corpoSite">
 
             <!-- Menu Suspenso-->
-            <div class="topnav" id="myTopnav">
-                <a href="#home" class="active">Home</a>
-                <a href="#news">Acervo</a>
-                <a href="#contact">Empréstimos</a>
-                <div class="dropdown">
-                    <button class="dropbtn">Cadastro 
-                        <i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="#">Autor</a>
-                        <a href="#">Clientes</a>
-                        <a href="#">Livros</a>
-                    </div>
-                </div> 
+           <div class="topnav" id="myTopnav">
+                <a href="index.html" class="active">Home</a>
+                <a href="ConsultarAcervo">Acervo</a>
+                <a href="Reserva">Empréstimos</a>
+                <a href="CadastroCliente">Cadastro Cliente</a>
+                <a href="CadastroLivro">Cadastro Livro</a>
+
+             </div>
                 <!--a href="#about">About</a-->
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
             </div>
@@ -51,7 +45,7 @@
 
                     <div class="card-body">
 
-                        <form method="POST" action="RegEmprestimo" id="formRegistroEmprestimo">
+                        <form method="POST" action="RegistroEmprestimo" id="formRegistroEmprestimo">
                             <div class="box"> 
                                 <div class="isbn">
                                     <label for="isbn">ISBN</label>
@@ -65,10 +59,7 @@
                                     <label for="cliente">Cliente</label>
                                     <input type="text" name="cliente" id="cliente">
                                 </div>
-                                <div class="dtPrevEntrega">
-                                    <label for="dtPrevEntrega">Previsão de Entrega</label>
-                                    <input type="date" name="dtPrevEntrega" id="dtPrevEntrega">
-                                </div>
+                                
                                 <div class="submit" id="form_button">
                                     <input type="submit" value="Salvar">
                                     <input type="reset" value="Cancelar">
@@ -84,11 +75,13 @@
                 </div><!-- fim .card-body -->
             </div><!-- fim .card -->
 
-        <footer>
-            <p>Posted by: Marcelo Pereira | Vinicius Presoto</p>
-            <p>Programação Orientada a Objeto: <a href="http://www.sp.senac.br/graduacao/curso/tecnologia/analise-e-desenvolvimento-de-sistemas">
-                    TADS - Senac</a></p>
-        </footer>
-    </div>
-</body>
+            <footer>
+                <p>Posted by: Marcelo Pereira | Vinicius Presoto</p>
+                <p>Programação Orientada a Objeto: <a href="http://www.sp.senac.br/graduacao/curso/tecnologia/analise-e-desenvolvimento-de-sistemas">
+                        TADS - Senac</a></p>
+            </footer>
+        </div>
+
+       
+    </body>
 </html>

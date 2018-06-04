@@ -5,7 +5,8 @@
  */
 package pooBiblioteca.auxiliares;
 
-import java.sql.Date;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 /**
@@ -14,7 +15,7 @@ import java.util.Calendar;
  */
 public class AuxiliarDatas {
     
-    public Date getDataPrevisaoEntrega(Date dtEmp){
+    public static Date getDataPrevisaoEntrega(Date dtEmp){
         Calendar c = Calendar.getInstance();
         Date dataPrevisao;
         c.setTime(dtEmp);
@@ -22,13 +23,24 @@ public class AuxiliarDatas {
         return dataPrevisao = (Date) c.getTime();
     }
     
-    public int qtdDiasAtraso(Date dataPrevisao, Date dataEntrega){
+    public static int qtdDiasAtraso(Date dataPrevisao, Date dataEntrega){
         Calendar a = Calendar.getInstance();
         a.setTime(dataPrevisao);
         Calendar b = Calendar.getInstance();
         b.setTime(dataEntrega);
         b.add(Calendar.DATE, - a.get(Calendar.DAY_OF_MONTH));
         return b.get(Calendar.DAY_OF_MONTH);
+    }
+    
+    public static java.util.Date ftmtData() {
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+        java.util.Date data = new java.util.Date(System.currentTimeMillis());
+        String date = formato.format(data);
+        try {
+            return data = formato.parse(date);
+        } catch (Exception e) {
+        }
+        return null;
     }
     
 }

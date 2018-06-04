@@ -5857,7 +5857,7 @@ button.close {
             perspective: 1000px;
   }
 }
-
+/*
 @supports ((-webkit-transform: translate3d(0, 0, 0)) or (transform: translate3d(0, 0, 0))) {
   .carousel-item {
     -webkit-transition: -webkit-transform 0.6s ease-in-out;
@@ -5871,7 +5871,7 @@ button.close {
             perspective: 1000px;
   }
 }
-
+*/
 .carousel-item.active,
 .carousel-item-next,
 .carousel-item-prev {
@@ -5904,7 +5904,7 @@ button.close {
             transform: translate3d(-100%, 0, 0);
   }
 }
-
+/*
 @supports ((-webkit-transform: translate3d(0, 0, 0)) or (transform: translate3d(0, 0, 0))) {
   .carousel-item-next.carousel-item-left,
   .carousel-item-prev.carousel-item-right {
@@ -5921,7 +5921,7 @@ button.close {
     -webkit-transform: translate3d(-100%, 0, 0);
             transform: translate3d(-100%, 0, 0);
   }
-}
+}*/
 
 .carousel-control-prev,
 .carousel-control-next {

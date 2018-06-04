@@ -28,20 +28,19 @@ public class EmprestimoDAO {
     public static void registrar(Emprestimo livro, String cpf) throws SQLException, Exception {
         PreparedStatement stmt = null;
         cn = ConnectionFactory.getConnection();
-        AuxiliarDatas aux = new AuxiliarDatas();
-        Date dataPrevisao = aux.getDataPrevisaoEntrega(livro.getDtEmp());
 
-        String sql = "INSERT INTO ItemLivro (ISBN,dtEmprest,dtPrevista,ValorMulta, DiasAtraso, Cliente) "
-                + "VALUES (?,?,?,?,?,?)";
+        String sql = "INSERT INTO ItemLivro (ISBN,dtEmprest,dtDevol, dtPrevista,ValorMulta, DiasAtraso, Cliente) "
+                + "VALUES (?,?,?,?,?,?,?)";
         
         try {
             stmt = cn.prepareStatement(sql);
             stmt.setString(1, livro.getIsbn());
-            stmt.setDate(2,   livro.getDtEmp());
-            stmt.setDate(3, dataPrevisao);
-            stmt.setDouble(4, livro.getValorMulta());
-            stmt.setInt(5, 0);
-            stmt.setString(6, cpf);
+            stmt.setDate(2,  new Date (livro.getDtEmp().getTime()));
+            stmt.setDate(3, new Date(livro.getDtPrev().getTime()));
+            stmt.setDate(4, new Date(livro.getDtPrev().getTime()));
+            stmt.setDouble(5, livro.getValorMulta());
+            stmt.setInt(6, 0);
+            stmt.setString(7, cpf);
             stmt.execute();
             
         } finally {
@@ -58,7 +57,7 @@ public class EmprestimoDAO {
         
         try {
             stmt = cn.prepareStatement(sql);
-            stmt.setDate(1, livro.getDtDev());
+            stmt.setDate(1, new Date(livro.getDtDev().getTime()));
             stmt.setDouble(2, livro.getValorMulta());
             stmt.setInt(3, livro.getDiasAtraso());
             stmt.setBoolean(4, livro.isDevolvido());
