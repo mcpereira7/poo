@@ -6,43 +6,44 @@
 package pooBiblioteca.servlets;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import pooBiblioteca.controllers.ServicoLivro;
-import pooBiblioteca.model.LivroAcervo;
+import pooBiblioteca.model.Livro;
 
 /**
  *
  * @author Marcelo Pereira <macope727@gmail.com>
  */
 
-@WebServlet(urlPatterns = {"/ConsultarAcervo"})
-public class ConsultarLivro extends HttpServlet{
+@WebServlet(urlPatterns = {"/Reserva"})
+public class RegistrarEmprestimo extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String titulo = req.getParameter("acervo");
-        List<LivroAcervo> listaLivro = null;
-        try {
-            listaLivro = ServicoLivro.consultar(titulo);
-        } catch (Exception ex) {
-            Logger.getLogger(ConsultarLivro.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        req.setAttribute("listaLivro", listaLivro);
-        req.getRequestDispatcher("/WEB-INF/jsp/home.jsp").forward(req, resp);
+        String isbn = req.getParameter("reservar");
+        Livro livro = null;
         
+        try {
+            livro = ServicoLivro.consultarByIsbn(isbn);
+            
+        } catch (Exception e) {
+        }
+        req.setAttribute("livro", livro);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/RegistrarEmprestimo.jsp");
+        dispatcher.forward(req, resp);
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/RegistrarEmprestimo.jsp");
+        dispatcher.forward(req, resp);
     }
     
-     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/jsp/home.jsp").forward(req, resp);
-    }
+    
     
 }

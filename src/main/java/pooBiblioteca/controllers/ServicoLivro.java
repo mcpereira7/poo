@@ -39,4 +39,28 @@ public class ServicoLivro {
         return listaLivro;
     }
     
+    public static LivroAcervo consultarByIsbn(String isbn) throws SQLException, Exception{
+        LivroAcervo livro = new LivroAcervo();
+        
+        try {
+            livro = LivroDAO.buscarByIsbn(isbn);
+        } catch (Exception e) {
+            
+        }
+        
+        return livro;
+    }
+    
+     public static List<LivroAcervo> consultarTop10() throws SQLException, Exception{
+        List<LivroAcervo> listaLivro = new ArrayList<>();
+        
+        try {
+            listaLivro = LivroDAO.buscarTop10();
+        } catch (Exception e) {
+            
+        }
+        
+        return listaLivro;
+    }
+    
 }

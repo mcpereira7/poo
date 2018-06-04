@@ -51,15 +51,15 @@
 
                     <div class="card-body">
 
-                        <form method="POST" action="CadastroCliente" id="formRegistroEmprestimo">
+                        <form method="POST" action="RegEmprestimo" id="formRegistroEmprestimo">
                             <div class="box"> 
                                 <div class="isbn">
                                     <label for="isbn">ISBN</label>
-                                    <input type="text" name="isbn" id="isbn">
+                                    <input type="text" name="isbn" id="isbn" value="${livro.getIsbn()}">
                                 </div>
                                 <div class="titulo">
                                     <label for="titulo">Titulo</label>
-                                    <input type="text" name="titulo" id="titulo">
+                                    <input type="text" name="titulo" id="titulo" value="${livro.getTitulo()}">
                                 </div>
                                 <div class="cliente">
                                     <label for="cliente">Cliente</label>

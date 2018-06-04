@@ -15,6 +15,7 @@ public abstract class Livro {
     protected String titulo;
     protected String categoria;
     protected int numPaginas;
+    protected int qtd;
 
 
     public String getIsbn() {
@@ -41,5 +42,23 @@ public abstract class Livro {
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
+
+    public int getNumPaginas() {
+        return numPaginas;
+    }
+
+    public void setNumPaginas(int numPaginas) {
+        this.numPaginas = numPaginas;
+    }
+
+    public int getQtd() {
+        return qtd;
+    }
+
+    public void setQtd(int qtd) {
+        this.qtd = qtd;
+    }
+    
+    
 
 }

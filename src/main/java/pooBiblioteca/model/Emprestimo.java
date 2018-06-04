@@ -5,7 +5,7 @@
  */
 package pooBiblioteca.model;
 
-import java.util.Calendar;
+import java.sql.Date;
 
 /**
  *
@@ -13,45 +13,46 @@ import java.util.Calendar;
  */
 public class Emprestimo extends Livro{
     
-    private Calendar dtEmp;
-    private Calendar dtDev;
-    private boolean dvAtraso; // Se devolução occoreu após a data prevista
+    private Date dtEmp;
+    private Date dtDev;
+    private boolean devolvido; // Se devolução occoreu após a data prevista
     private int diasAtraso;
     private double valorMulta;
+    
 
     public Emprestimo() {
     }
 
-    public Emprestimo(Calendar dtEmp, Calendar dtDev, boolean dvAtraso, int diasAtraso, double valorMulta) {
+    public Emprestimo(Date dtEmp, Date dtDev, boolean devolvido, int diasAtraso, double valorMulta) {
         this.dtEmp = dtEmp;
         this.dtDev = dtDev;
-        this.dvAtraso = dvAtraso;
+        this.devolvido = devolvido;
         this.diasAtraso = diasAtraso;
         this.valorMulta = valorMulta;
     }
 
-    public Calendar getDtEmp() {
+    public Date getDtEmp() {
         return dtEmp;
     }
 
-    public void setDtEmp(Calendar dtEmp) {
+    public void setDtEmp(Date dtEmp) {
         this.dtEmp = dtEmp;
     }
 
-    public Calendar getDtDev() {
+    public Date getDtDev() {
         return dtDev;
     }
 
-    public void setDtDev(Calendar dtDev) {
+    public void setDtDev(Date dtDev) {
         this.dtDev = dtDev;
     }
 
-    public boolean isDvAtraso() {
-        return dvAtraso;
+    public boolean isDevolvido() {
+        return devolvido;
     }
 
-    public void setDvAtraso(boolean dvAtraso) {
-        this.dvAtraso = dvAtraso;
+    public void setDevolvido(boolean devolvido) {
+        this.devolvido = devolvido;
     }
 
     public int getDiasAtraso() {
@@ -67,9 +68,7 @@ public class Emprestimo extends Livro{
     }
 
     public void setValorMulta(double valorMulta) {
-        if(isDvAtraso()){
         this.valorMulta = this.diasAtraso * valorMulta;
-        }
     }
 
     @Override
@@ -102,10 +101,12 @@ public class Emprestimo extends Livro{
         this.categoria = categoria;
     }
 
+    @Override
     public int getNumPaginas() {
         return numPaginas;
     }
 
+    @Override
     public void setNumPaginas(int numPaginas) {
         this.numPaginas = numPaginas;
     }

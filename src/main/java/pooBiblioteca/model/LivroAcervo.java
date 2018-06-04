@@ -77,6 +77,14 @@ public class LivroAcervo extends Livro{
     public void setSubTitulo(String subTitulo) {
         this.subTitulo = subTitulo;
     }
+    
+    public String getDataPub() {
+        return dataPub;
+    }
+
+    public void setDataPub(String dataPub) {
+        this.dataPub = dataPub;
+    }
 
     @Override
     public String getIsbn() {
@@ -108,14 +116,24 @@ public class LivroAcervo extends Livro{
         this.categoria = categoria;
     }
 
+    @Override
     public int getNumPaginas() {
         return numPaginas;
     }
 
+    @Override
     public void setNumPaginas(int numPaginas) {
         this.numPaginas = numPaginas;
     }
-    
-    
+
+    @Override
+    public int getQtd() {
+        return qtd;
+    }
+
+    @Override
+    public void setQtd(int qtd) {
+        this.qtd = qtd;
+    }
     
 }

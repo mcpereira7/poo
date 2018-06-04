@@ -62,12 +62,12 @@
                             <td><c:out value="${livro.titulo}"></c:out></td>
                             <td><c:out value="${livro.autor}"></c:out></td>
                                 <td id="btsAltExc">
-                                    <form action="ReservarLivro" method="POST" class="listCli">
+                                    <form action="Reserva" method="POST" class="listCli">
                                         <input type="image" src="img/edit_icon.png" 
-                                               name="edit" value="${livro.isbn}"></form>
-                                <form action="excluirLivro" method="POST" class="listCli">
+                                               name="reservar" value="${livro.isbn}"></form>
+                                <form action="excluirPessoa" method="POST" class="listCli">
                                     <input type="image" src="img/delete_icon.jpg"
-                                           name="excluir" value="${livro.isbn}"></form>
+                                           name="excluir" value="${cli.id}"></form>
                             </td>
                         </tr>
                     </c:forEach>
