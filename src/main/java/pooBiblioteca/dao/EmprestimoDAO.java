@@ -52,7 +52,7 @@ public class EmprestimoDAO {
         PreparedStatement stmt = null;
         cn = ConnectionFactory.getConnection();
 
-        String sql = "UPDATE Livro SET dtDevol = ?,ValosMulta = ?,DiasAtraso = ?,Devolvido = ?"
+        String sql = "UPDATE ItemLivro SET dtDevol = ?,ValorMulta = ?,DiasAtraso = ?,Devolvido = ?"
                 + "WHERE ISBN = ?";
 
         try {
@@ -91,10 +91,8 @@ public class EmprestimoDAO {
                 emp.setIsbn(rs.getString("ISBN"));
                 emp.setDtEmp((java.util.Date)rs.getDate("dtEmprest"));
                 emp.setDtDev((java.util.Date)rs.getDate("dtDevol"));
-                emp.setDtPrev((java.util.Date)rs.getDate("dtPrevista"));
                 emp.setTitulo(rs.getString("Titulo"));
                 emp.setDevolvido(rs.getBoolean("Devolvido"));
-                emp.setCliente(rs.getString("Nome"));
                 emps.add(emp);
             }
 
@@ -137,4 +135,31 @@ public class EmprestimoDAO {
         return livros;
     }
 
+    public static Emprestimo buscarByIsbn(String isbn) throws SQLException, Exception{
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Emprestimo livro = null;
+        String sql = "SELECT * FROM ItemLivro WHERE ISBN = ? and Devolvido is false;";
+        cn = ConnectionFactory.getConnection();
+        
+        try {
+            stmt = cn.prepareStatement(sql);
+            stmt.setString(1, isbn);
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                livro = new Emprestimo();
+                livro.setIsbn(rs.getString("ISBN"));
+                livro.setDevolvido(rs.getBoolean("Devolvido"));
+                livro.setDtEmp(rs.getDate("dtEmprest"));
+                livro.setDtPrev(rs.getDate("dtPresvista"));
+                
+            }
+            
+        } finally {
+            ConnectionFactory.closeConnection(cn, stmt, rs);
+        }
+        return livro;
+    }
+    
 }

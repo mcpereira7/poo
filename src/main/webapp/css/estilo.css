@@ -379,11 +379,11 @@ table {
     width: 100%;
 }
 
-table tbody tr {
+.table tbody tr {
     border: solid 1px rgba(210, 215, 217, 0.75);
     border-left: 0;
     border-right: 0;
-    height: 1em;
+    height: 0.3em !important;
 }
 
 table tbody tr:nth-child(2n + 1) {
@@ -443,6 +443,14 @@ table.alt tfoot {
 .listCli input{
     width: 12px;
     height: 14px;
+}
+.listLivro{
+    display: block;
+}
+.listLivro input[type="image"]{
+    width: 25px;
+    height: 30px;
+    position: absolute;
 }
 /*div.ldd{
     float: right;

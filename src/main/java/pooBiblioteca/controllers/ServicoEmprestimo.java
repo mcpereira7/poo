@@ -13,9 +13,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import pooBiblioteca.dao.EmprestimoDAO;
 import pooBiblioteca.dao.LivroDAO;
+import pooBiblioteca.dao.RelatorioDAO;
 import pooBiblioteca.model.Emprestimo;
-import pooBiblioteca.model.EmprestimoRelatorio;
 import pooBiblioteca.model.LivroAcervo;
+import pooBiblioteca.relatorios.EmprestimoRel;
 
 /**
  *
@@ -31,13 +32,13 @@ public class ServicoEmprestimo {
         }
     }
     
-    public static List<EmprestimoRelatorio> consultar(Date ini, Date fim) throws SQLException, Exception{
-        List<EmprestimoRelatorio> listaEmp = new ArrayList<>();
+    public static List<EmprestimoRel> consultar(Date ini, Date fim) throws SQLException, Exception{
+        List<EmprestimoRel> listaEmp = new ArrayList<>();
         java.sql.Date dti = new java.sql.Date (ini.getTime());
         java.sql.Date dtf = new java.sql.Date (fim.getTime());
         
         try {
-            listaEmp = EmprestimoDAO.buscar(dti, dtf);
+            listaEmp = RelatorioDAO.relatorioEmprestimos(dti, dtf);
         } catch (Exception e) {
             
         }
@@ -45,11 +46,11 @@ public class ServicoEmprestimo {
         return listaEmp;
     }
     
-    public static LivroAcervo consultarByIsbn(String isbn) throws SQLException, Exception{
-        LivroAcervo livro = new LivroAcervo();
+    public static Emprestimo consultarByIsbn(String isbn) throws SQLException, Exception{
+        Emprestimo livro = new Emprestimo();
         
         try {
-            livro = LivroDAO.buscarByIsbn(isbn);
+            livro = EmprestimoDAO.buscarByIsbn(isbn);
         } catch (Exception e) {
             
         }

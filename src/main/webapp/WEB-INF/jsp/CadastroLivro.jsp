@@ -15,6 +15,7 @@
         <link rel="stylesheet" type="text/css" media="screen" href="css/estilo.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="css/font-awesome.min.css" />
         <script src="js/menu.js"></script>
         <script src="js/jquery.min.js"></script>
         <script src="js/skel.min.js"></script>

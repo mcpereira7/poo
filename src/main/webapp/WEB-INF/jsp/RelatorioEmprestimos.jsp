@@ -14,6 +14,7 @@
         <link rel="stylesheet" type="text/css" media="screen" href="css/estilo.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="css/font-awesome.min.css" />
         <script src="js/menu.js"></script>
         <script src="js/jquery.min.js"></script>
         <script src="js/skel.min.js"></script>
@@ -52,7 +53,6 @@
                         <td>Ação</td>
                     </tr>
                 </theader>
-                <tbody>
                     <c:forEach var="emp" items="${rel}">
                         <tr>
                             <td><c:out value="${emp.isbn}"></c:out></td>
@@ -61,11 +61,10 @@
                                 <td id="btsAltExc">
                                     <form action="Reserva" method="POST" class="listCli">
                                         <input type="image" src="img/edit_icon.png" 
-                                               name="reservar" value="${livro.isbn}"></form>
+                                               name="reservar" value="${emp.isbn}"></form>
                             </td>
                         </tr>
                     </c:forEach>
-                </tbody>
             </table>
             <footer>
                 <p>Posted by: Marcelo Pereira | Vinicius Presoto</p>

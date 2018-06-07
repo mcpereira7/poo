@@ -14,6 +14,7 @@
         <link rel="stylesheet" type="text/css" media="screen" href="css/estilo.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="css/font-awesome.min.css" />
         <script src="js/menu.js"></script>
         <script src="js/jquery.min.js"></script>
         <script src="js/skel.min.js"></script>
@@ -38,7 +39,7 @@
                 </form>
             </section>
 
-            <table>
+            <table class="table">
                 <theader>
                     <tr>
                         <td>ISBN</td>
@@ -54,9 +55,12 @@
                             <td><c:out value="${livro.titulo}"></c:out></td>
                             <td><c:out value="${livro.autor}"></c:out></td>
                                 <td id="btsAltExc">
-                                    <form action="Reserva" method="POST" class="listCli">
-                                        <input type="image" src="img/edit_icon.png" 
-                                            name="reservar" value="${livro.isbn}"></form>
+                                    <form action="Reserva" method="POST" class="listLivro">
+                                        <input type="image" src="img/Reservar.png" 
+                                               name="reservar" value="${livro.isbn}"></form>
+                                <form action="Devolucao" method="GET" class="listLivro">
+                                    <input type="image" src="img/Devolver.png" 
+                                           name="devolver" value="${livro.isbn}"></form>
                             </td>
                         </tr>
                     </c:forEach>

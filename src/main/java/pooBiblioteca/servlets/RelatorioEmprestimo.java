@@ -6,8 +6,6 @@
 package pooBiblioteca.servlets;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -17,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import pooBiblioteca.auxiliares.AuxiliarDatas;
 import pooBiblioteca.controllers.ServicoEmprestimo;
-import pooBiblioteca.model.EmprestimoRelatorio;
+import pooBiblioteca.relatorios.EmprestimoRel;
 
 /**
  *
@@ -28,7 +26,7 @@ public class RelatorioEmprestimo extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<EmprestimoRelatorio> remps = null;
+        List<EmprestimoRel> remps = null;
         Date dtIni = AuxiliarDatas.ftmtDataRequest(req.getParameter("dtIni"));
         Date dtFim = AuxiliarDatas.ftmtDataRequest(req.getParameter("dtFim"));
         

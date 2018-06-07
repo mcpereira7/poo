@@ -3,85 +3,95 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pooBiblioteca.model;
+package pooBiblioteca.relatorios;
 
 import java.util.Date;
+import pooBiblioteca.model.Emprestimo;
 
 /**
  *
- * @author vinicius.presoto
+ * @author Marcelo Pereira <macope727@gmail.com>
  */
-public class Emprestimo extends Livro{
-    
-    protected Date dtEmp;
-    protected Date dtDev;
-    protected Date dtPrev;
-    protected boolean devolvido; 
-    protected int diasAtraso;
-    protected double valorMulta;
-    
+public class EmprestimoRel extends Emprestimo{
+    private String cliente;
 
-    public Emprestimo() {
+    public EmprestimoRel() {
     }
 
-    public Emprestimo(Date dtEmp, Date dtDev, Date dtPrev, boolean devolvido, int diasAtraso, double valorMulta) {
-        this.dtEmp = dtEmp;
-        this.dtDev = dtDev;
-        this.dtPrev = dtPrev;
-        this.devolvido = devolvido;
-        this.diasAtraso = diasAtraso;
-        this.valorMulta = valorMulta;
+    public EmprestimoRel(String cliente, Date dtEmp, Date dtDev, Date dtPrev, boolean devolvido, int diasAtraso, double valorMulta) {
+        super(dtEmp, dtDev, dtPrev, devolvido, diasAtraso, valorMulta);
+        this.cliente = cliente;
     }
 
+    public String getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
+    }
+
+    @Override
     public Date getDtEmp() {
         return dtEmp;
     }
 
+    @Override
     public void setDtEmp(Date dtEmp) {
         this.dtEmp = dtEmp;
     }
 
+    @Override
     public Date getDtDev() {
         return dtDev;
     }
 
+    @Override
     public void setDtDev(Date dtDev) {
         this.dtDev = dtDev;
     }
 
-    public boolean isDevolvido() {
-        return devolvido;
-    }
-
-    public void setDevolvido(boolean devolvido) {
-        this.devolvido = devolvido;
-    }
-
-    public int getDiasAtraso() {
-        return diasAtraso;
-    }
-
-    public void setDiasAtraso(int diasAtraso) {
-        this.diasAtraso = diasAtraso;
-    }
-
-    public double getValorMulta() {
-        return valorMulta;
-    }
-
-    public void setValorMulta(double valorMulta) {
-        this.valorMulta = this.diasAtraso * valorMulta;
-    }
-
+    @Override
     public Date getDtPrev() {
         return dtPrev;
     }
 
+    @Override
     public void setDtPrev(Date dtPrev) {
         this.dtPrev = dtPrev;
     }
 
-    
+    @Override
+    public boolean isDevolvido() {
+        return devolvido;
+    }
+
+    @Override
+    public void setDevolvido(boolean devolvido) {
+        this.devolvido = devolvido;
+    }
+
+    @Override
+    public int getDiasAtraso() {
+        return diasAtraso;
+    }
+
+   
+    @Override
+    public void setDiasAtraso(int diasAtraso) {
+        this.diasAtraso = diasAtraso;
+    }
+
+    @Override
+    public double getValorMulta() {
+        return valorMulta;
+    }
+
+    @Override
+    public void setValorMulta(double valorMulta) {
+        this.valorMulta = valorMulta;
+    }
+
     @Override
     public String getIsbn() {
         return isbn;
@@ -103,25 +113,14 @@ public class Emprestimo extends Livro{
     }
 
     @Override
-    public String getCategoria() {
-        return categoria;
+    public int getQtd() {
+        return qtd;
     }
 
     @Override
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setQtd(int qtd) {
+        this.qtd = qtd;
     }
-
-    @Override
-    public int getNumPaginas() {
-        return numPaginas;
-    }
-
-    @Override
-    public void setNumPaginas(int numPaginas) {
-        this.numPaginas = numPaginas;
-    }
-    
     
     
 }

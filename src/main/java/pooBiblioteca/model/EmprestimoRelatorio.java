@@ -19,46 +19,10 @@ public class EmprestimoRelatorio extends Emprestimo {
     }
 
     public EmprestimoRelatorio(String cliente, Date dtEmp, Date dtDev, boolean devolvido, int diasAtraso, double valorMulta) {
-        super(dtEmp, dtDev, devolvido, diasAtraso, valorMulta, dtDev);
+        super(dtEmp, dtDev, dtDev, devolvido, diasAtraso, valorMulta);
         this.cliente = cliente;
     }
 
-    public String getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(String cliente) {
-        this.cliente = cliente;
-    }
-
-    @Override
-    public String getIsbn() {
-        return isbn;
-    }
-
-    @Override
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
-
-    @Override
-    public String getTitulo() {
-        return titulo;
-    }
-
-    @Override
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    @Override
-    public Date getDtPrev() {
-        return dtPrev;
-    }
-
-    @Override
-    public void setDtPrev(Date dtPrev) {
-        this.dtPrev = dtPrev;
-    }
+   
 
 }
