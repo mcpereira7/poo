@@ -30,6 +30,12 @@ public class DevolucaoLivro extends HttpServlet{
         
         try {
             emp = ServicoEmprestimo.consultarByIsbn(isbn);
+            emp.setDtDev(AuxiliarDatas.ftmtData());
+            if(emp.getDtDev().after(emp.getDtPrev())){
+                int aux = AuxiliarDatas.qtdDiasAtraso(emp.getDtPrev(), emp.getDtDev());
+                emp.setValorMulta(aux * 1.50);
+                
+            }
         } catch (Exception e) {
         }
         req.setAttribute("livro", emp);
