@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
     <head>
         <title>Start Page</title>
         <meta charset="utf-8" />
@@ -14,6 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" media="screen" href="css/estilo.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
         <script src="js/menu.js"></script>
         <script src="js/jquery.min.js"></script>
         <script src="js/skel.min.js"></script>

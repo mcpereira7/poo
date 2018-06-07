@@ -7,12 +7,14 @@ package pooBiblioteca.controllers;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import pooBiblioteca.dao.EmprestimoDAO;
 import pooBiblioteca.dao.LivroDAO;
 import pooBiblioteca.model.Emprestimo;
+import pooBiblioteca.model.EmprestimoRelatorio;
 import pooBiblioteca.model.LivroAcervo;
 
 /**
@@ -29,16 +31,18 @@ public class ServicoEmprestimo {
         }
     }
     
-    public static List<LivroAcervo> consultar(String titulo) throws SQLException, Exception{
-        List<LivroAcervo> listaLivro = new ArrayList<>();
+    public static List<EmprestimoRelatorio> consultar(Date ini, Date fim) throws SQLException, Exception{
+        List<EmprestimoRelatorio> listaEmp = new ArrayList<>();
+        java.sql.Date dti = new java.sql.Date (ini.getTime());
+        java.sql.Date dtf = new java.sql.Date (fim.getTime());
         
         try {
-            listaLivro = LivroDAO.buscar(titulo);
+            listaEmp = EmprestimoDAO.buscar(dti, dtf);
         } catch (Exception e) {
             
         }
         
-        return listaLivro;
+        return listaEmp;
     }
     
     public static LivroAcervo consultarByIsbn(String isbn) throws SQLException, Exception{

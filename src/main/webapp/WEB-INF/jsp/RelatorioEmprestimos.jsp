@@ -30,11 +30,15 @@
                 <a href="CadastroCliente">Cadastro Cliente</a>
                 <a href="CadastroLivro">Cadastro Livro</a>
 
-            </div>
+             </div>
             <!-- Search -->
             <section id="search" class="alt">
-                <form method="POST" action="ConsultarAcervo">
-                    <input type="text" name="acervo" id="acervo" placeholder="Buscar no Acervo" />
+                <form method="POST" action="RelatorioEmprestimo">
+                    <label for="dtIni">Data Inicial</label>
+                    <input type="date" name="dtIni" id="dtIni"/>
+                    <label for="dtFim">Data Final</label>
+                    <input type="date" name="dtFim" id="dtFim"/>
+                    <input type="submit" name="enviar" id="enviar" value="gerar">
                 </form>
             </section>
 
@@ -43,20 +47,21 @@
                     <tr>
                         <td>ISBN</td>
                         <td>Título</td>
-                        <td>Autor</td>
-                        <td>Reservar / Alterar</td>
+                        <td>Data Empréstimo</td>
+                        <td>Data Devolução</td>
+                        <td>Ação</td>
                     </tr>
                 </theader>
                 <tbody>
-                    <c:forEach var="livro" items="${listaLivro}">
+                    <c:forEach var="emp" items="${rel}">
                         <tr>
-                            <td><c:out value="${livro.isbn}"></c:out></td>
-                            <td><c:out value="${livro.titulo}"></c:out></td>
-                            <td><c:out value="${livro.autor}"></c:out></td>
+                            <td><c:out value="${emp.isbn}"></c:out></td>
+                            <td><c:out value="${emp.titulo}"></c:out></td>
+                            <td><c:out value="${emp.dtEmp}"></c:out></td>
                                 <td id="btsAltExc">
                                     <form action="Reserva" method="POST" class="listCli">
                                         <input type="image" src="img/edit_icon.png" 
-                                            name="reservar" value="${livro.isbn}"></form>
+                                               name="reservar" value="${livro.isbn}"></form>
                             </td>
                         </tr>
                     </c:forEach>

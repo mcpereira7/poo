@@ -15,7 +15,7 @@ public class Emprestimo extends Livro{
     
     private Date dtEmp;
     private Date dtDev;
-    private Date dtPrev;
+    Date dtPrev;
     private boolean devolvido; 
     private int diasAtraso;
     private double valorMulta;
@@ -24,12 +24,13 @@ public class Emprestimo extends Livro{
     public Emprestimo() {
     }
 
-    public Emprestimo(Date dtEmp, Date dtDev, boolean devolvido, int diasAtraso, double valorMulta) {
+    public Emprestimo(Date dtEmp, Date dtDev, boolean devolvido, int diasAtraso, double valorMulta, Date dtPrev) {
         this.dtEmp = dtEmp;
         this.dtDev = dtDev;
         this.devolvido = devolvido;
         this.diasAtraso = diasAtraso;
         this.valorMulta = valorMulta;
+        this.dtPrev = dtPrev;
     }
 
     public Date getDtEmp() {

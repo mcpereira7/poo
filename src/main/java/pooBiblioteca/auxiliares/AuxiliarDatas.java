@@ -43,4 +43,14 @@ public class AuxiliarDatas {
         return null;
     }
     
+    public static java.util.Date ftmtDataRequest(String dt) {
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+        Date data = null;
+        try {
+            return data = formato.parse(dt);
+        } catch (Exception e) {
+        }
+        return null;
+    }
+    
 }

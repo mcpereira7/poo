@@ -29,6 +29,7 @@ public class RegEmprestimo extends HttpServlet{
         Emprestimo emp = new Emprestimo();
         String cpf = req.getParameter("cliente");
         Date dtNow = AuxiliarDatas.ftmtData();
+        Date dtDevol = null;
         Date dtPrev = AuxiliarDatas.getDataPrevisaoEntrega(dtNow);
         emp.setIsbn(req.getParameter("isbn"));
         emp.setTitulo(req.getParameter("titulo"));
@@ -44,6 +45,7 @@ public class RegEmprestimo extends HttpServlet{
         dispatcher.forward(req, resp);
         
     }
+    
     
     
     
